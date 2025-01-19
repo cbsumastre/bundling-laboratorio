@@ -6,8 +6,9 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin")
 
 
 module.exports = {
+    context: path.resolve(__dirname,"./src"),
     entry: {
-        app: "./src/index.js"
+        app: "./index.js"
     },
     output: {
         filename: '[name].[chunkhash].js',
@@ -24,13 +25,26 @@ module.exports = {
                 test: /\.css$/,
                 exclude: /node_modules/,
                 use: [MiniCssExtractPlugin.loader, "css-loader"]
-            }
+            },
+            {
+                test: /\.scss$/,
+                exclude: /node_modules/,
+                use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"]
+            },
+            {
+                test: /\.(png|jpg)$/,
+                type: 'asset/resource'
+            },
+           {
+            test: /\.html$/,
+            use: ['html-loader']
+           }
         ],
     },
     plugins: [
         new HtmlWebpackPlugin({
             filename: "index.html", // nombre del fichero en carpeta dist
-            template: "./src/index.html", // nombre de fichero que se usa como plantilla
+            template: "./index.html", // nombre de fichero que se usa como plantilla
             scriptLoading: "blocking", // compatibilidad con navegadores antiguos
             hash: true
 
@@ -42,7 +56,6 @@ module.exports = {
         })
     ],
     devServer: {
-        static: path.join(__dirname, "./src"),
         port: 8082
     }
 };

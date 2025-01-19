@@ -1,5 +1,11 @@
+$test: 100px;
+body {
+    margin: $test;
+    padding: $test;
+}
 .articles {
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
