@@ -1,11 +1,83 @@
-$test: 100px;
+@use "base" as *;
+
 body {
-    margin: $test;
-    padding: $test;
+    margin: 0px;
+    padding: 0px;
 }
+
 .articles {
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 100vw;
+    height: 100vh;
 }
 
+.article-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    background: $secondary-color;
+    width: $card-width;
+    padding: 25px;
+    margin: 0px;
+    color: $primary-color;
+
+    & {
+        img {
+            width: 200px;
+            border-radius: 8px;
+        }
+
+        .article-body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 25px;
+            padding: 10px;
+
+            & {
+                h2 {
+                    text-align: center;
+                    width: 100%;
+                }
+
+                .hola-mundo {
+                    font-weight: $hola-mundo-weight;
+                    text-transform: lowercase;
+                    text-align: left;
+                    animation: 3s infinite alternate slide-in;
+                }
+
+
+                a {
+                    text-align: center;
+                    color: $primary-color;
+                    transition: all .3s ease-in-out;
+                }
+
+                a:hover {
+                    transform: scale(1.1);
+                }
+
+                @keyframes slide-in {
+                    from {
+                        translate: 0;
+                        color: $secondary-color;
+                    }
+
+                    to {
+                        translate: calc($card-width - 100px);
+                        color: $primary-color;
+                    }
+                }
+
+            }
+
+        }
+    }
+
+
+}
