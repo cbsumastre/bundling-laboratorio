@@ -1,16 +1,15 @@
 const path = require("node:path");
 const HtmlWebPackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 
 module.exports = {
     context: path.resolve(__dirname, "./src"),
     resolve: {
-        extensions: [".js", ".ts"]
+        extensions: [".js", ".ts", ".tsx"]
     },
     entry: {
-        app: "./index.js"
+        app: "./index.tsx"
     },
     output: {
         filename: '[name].[chunkhash].js',
@@ -19,14 +18,22 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.js$/,
+                test: /\.tsx$/,
                 exclude: /node_modules/,
                 loader: 'babel-loader',
             },
             {
-                test: /\.scss$/,
+                test: /\.ts$/,
                 exclude: /node_modules/,
-                use: ["style-loader", "css-loader", "sass-loader"]
+                loader: 'babel-loader',
+            },
+            {
+                test: /\.(png|jpg)$/,
+                type: 'asset/resource'
+            },
+            {
+                test: /\.html$/,
+                loader: 'html-loader'
             }
         ],
     },
@@ -35,15 +42,7 @@ module.exports = {
             filename: 'index.html', // nombre del fichero en carpeta dist
             template: 'index.html', //nombre de fichero que se usa como plantilla
             scriptLoading: 'blocking', // compatibilidad con navegadores antiguos
-            hash: true
         }),
-        new CleanWebpackPlugin({
-            filename: "[name].css",
-            chunkFilename: "[id].css"
-        }),
-    ],
-    devServer: {
-        static: path.join(__dirname, "./src"),
-        port: 8081
-    }
+        new CleanWebpackPlugin(),
+    ]
 };
