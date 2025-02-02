@@ -25,57 +25,51 @@ body {
     margin: 0px;
     color: $primary-color;
 
-    & {
-        img {
-            width: 200px;
-            border-radius: 8px;
+    img {
+        width: 200px;
+        border-radius: 8px;
+    }
+
+    .article-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 25px;
+        padding: 10px;
+
+        h2 {
+            text-align: center;
+            width: 100%;
         }
 
-        .article-body {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            gap: 25px;
-            padding: 10px;
-
-            & {
-                h2 {
-                    text-align: center;
-                    width: 100%;
-                }
-
-                .hola-mundo {
-                    font-weight: $hola-mundo-weight;
-                    text-transform: lowercase;
-                    text-align: left;
-                    animation: 3s infinite alternate slide-in;
-                }
+        .hola-mundo {
+            font-weight: $hola-mundo-weight;
+            text-transform: lowercase;
+            text-align: left;
+            animation: 3s infinite alternate slide-in;
+        }
 
 
-                a {
-                    text-align: center;
-                    color: $primary-color;
-                    transition: all .3s ease-in-out;
-                }
+        a {
+            text-align: center;
+            color: $primary-color;
+            transition: all .3s ease-in-out;
+        }
 
-                a:hover {
-                    transform: scale(1.1);
-                }
+        a:hover {
+            transform: scale(1.1);
+        }
 
-                @keyframes slide-in {
-                    from {
-                        translate: 0;
-                        color: $secondary-color;
-                    }
-
-                    to {
-                        translate: calc($card-width - 100px);
-                        color: $primary-color;
-                    }
-                }
-
+        @keyframes slide-in {
+            from {
+                translate: 0;
+                color: $secondary-color;
             }
 
+            to {
+                translate: calc($card-width - 100px);
+                color: $primary-color;
+            }
         }
     }
 

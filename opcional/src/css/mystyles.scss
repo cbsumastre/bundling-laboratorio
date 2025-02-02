@@ -4,10 +4,9 @@
     align-items: center;
     width: 100wv;
     height: 100vh;
-    & {
-        .hello-world-message {
-            font-size: 2rem;
-            text-align: center;
-        }
+
+    .hello-world-message {
+        font-size: 2rem;
+        text-align: center;
     }
 }
