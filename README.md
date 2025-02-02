@@ -27,5 +27,5 @@ El ejercicio básico sería implementar una aplicación simple que:
 ## Bonus points
 Alternativamente o como puntos adicionales podéis plantear desarrollar algunos de los siguientes desafíos (o proponer algún otro):
 
-* Crear tu propio proyecto semilla con las tecnologías que elijas (mínimo traspilar a ES5 y dar soporte a Typescript).
-* Montar una semilla de proyecto con vite
+* Montar una semilla de proyecto con vite (SASS + Typescript + React) ✅
+* Usar la semilla del proyecto vite (SASS + Typescript + React): app-color-generator ✅
