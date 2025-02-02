@@ -22,6 +22,7 @@ body {
     height: 100vh;
     justify-content: center;
     align-items: center;
+    min-width: 400px;
 
 
     .title {
@@ -109,4 +110,27 @@ body {
         text-align: center;
         transition: all .3s;
     }
+}
+
+@media (width <=900px) {
+    .container {
+
+        .container-message-copied {
+            visibility: hidden;
+            margin: 0;
+        }
+        .container-color {
+            width: 100px;
+            height: 80px;
+        }
+    }
+}
+
+@media (width <=680px) {
+    .container {
+        .container-colors {
+            flex-direction: column;
+        }
+    }
+
 }
