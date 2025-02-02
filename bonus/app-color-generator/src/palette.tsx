@@ -7,10 +7,6 @@ export interface ApiColorResponse {
     result: number[][]
 }
 
-const transformToHex = (arrayColor: number[]): string => {
-    return "#" + arrayColor.map(item => Math.abs(item).toString(16)).join("");
-}
-
 export const Palette: React.FC = () => {
 
     const [colors, setColors] = useState<string[]>()
@@ -43,9 +39,7 @@ export const Palette: React.FC = () => {
             <div className="container-colors">
                 {
                     colors?.map((color
-                    ) => <div key={color}>
-                            <Color color={color} colorSelected={colorSelected} changeColorSelected={changeColorSelected} />
-                        </div>)
+                    ) => <Color color={color} colorSelected={colorSelected} changeColorSelected={changeColorSelected} key={color}/>)
                 }
             </div>
             <button onClick={handleClick} className="btnGeneratePalette">Generate color palette</button>
